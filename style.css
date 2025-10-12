@@ -1,0 +1,446 @@
+/* Future Gadget Expo 2025 - Main Stylesheet */
+
+/* ==========================================================================
+   CSS Custom Properties (Variables)
+   ========================================================================== */
+:root {
+  /* Colors - Light Theme */
+  --color-primary: #6366f1;
+  --color-primary-dark: #4f46e5;
+  --color-secondary: #06b6d4;
+  --color-accent: #f59e0b;
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+  
+  /* Text Colors */
+  --color-text-primary: #37371f;
+  --color-text-secondary: #6b7280;
+  --color-text-muted: #9ca3af;
+  --color-text-inverse: #ffffff;
+  
+  /* Background Colors */
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f9fafb;
+  --color-bg-tertiary: #f3f4f6;
+  --color-border: #e5e7eb;
+  
+  /* Gradients */
+  /* --gradient-primary: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  --gradient-hero: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
+
+--gradient-primary: linear-gradient(135deg, #a3bffa 0%, #c3aed6 100%);
+--gradient-hero: linear-gradient(135deg, #c3d9ff 0%, #d9c2f0 100%);
+
+  
+  /* Typography */
+  --font-family-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.5rem;
+  --font-size-5xl: 3rem;
+  
+  /* Spacing */
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+  --spacing-12: 3rem;
+  --spacing-16: 4rem;
+  --spacing-20: 5rem;
+  
+  /* Border Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  
+  /* Transitions */
+  --transition-fast: 0.15s ease-in-out;
+  --transition-base: 0.25s ease-in-out;
+  --transition-slow: 0.35s ease-in-out;
+  
+  /* Z-index */
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
+  --z-toast: 1080;
+}
+
+/* Dark Theme Variables */
+.theme--dark {
+  --color-text-primary: #f9fafb;
+  --color-text-secondary: #d1d5db;
+  --color-text-muted: #9ca3af;
+  --color-text-inverse: #1f2937;
+  
+  --color-bg-primary: #111827;
+  --color-bg-secondary: #1f2937;
+  --color-bg-tertiary: #374151;
+  --color-border: #374151;
+}
+
+/* ==========================================================================
+   Base Styles
+   ========================================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-primary);
+  transition: background-color var(--transition-base), color var(--transition-base);
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 var(--spacing-4) 0;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-text-primary);
+}
+
+h1 { font-size: var(--font-size-4xl); }
+h2 { font-size: var(--font-size-3xl); }
+h3 { font-size: var(--font-size-2xl); }
+h4 { font-size: var(--font-size-xl); }
+h5 { font-size: var(--font-size-lg); }
+h6 { font-size: var(--font-size-base); }
+
+p {
+  margin: 0 0 var(--spacing-4) 0;
+  color: var(--color-text-secondary);
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-primary-dark);
+  text-decoration: underline;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-6);
+    
+}
+.logo{
+        margin-left: var(--spacing-8);
+    width: 30%;
+    height: auto;
+    padding-left: var(--spacing-20);
+    
+    
+}
+ .fge{
+    color: var(--color-primary);
+}
+.black{
+    color: var(--color-text-primary);
+} */
+.fge:visited{
+  color: var(--color-primary);
+}
+
+
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+    list-style: none;
+    text-align: star;
+
+    margin-right: var(--spacing-8);
+    padding-right: var(--spacing-20);
+}
+button{
+    background-color: var(--color-primary);
+    color: var(--color-bg-primary);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-4 ) var(--spacing-6);
+    border-style: none;
+}
+.exp{
+
+   color: var(--color-primary);
+    background-color: var(--gradient-primary);
+    border: 1px solid var(--color-primary-dark);
+}
+.cont{ 
+   color: var(--color-primary);
+    background-color: var(--gradient-primary);
+  
+     border-radius: var(--radius-xl);
+    padding: var(--spacing-4 ) var(--spacing-6);
+    border: 1px solid var(--color-primary-dark);
+}
+
+
+
+.hero{
+    
+    background-image: var(--gradient-primary);
+    padding-bottom: var(--spacing-12);
+    padding-top: var(--spacing-12);
+}
+.hero {
+    text-align: center;
+}
+.march{
+    color: var(--color-accent);
+}
+.register{
+    color: var(--color-bg-primary);
+}
+.btn{
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-4);
+
+}
+.eventhighlights{
+    margin-top: var(--spacing-8);
+    text-align: center;
+
+}
+.card{
+
+    
+    display: flex;
+    margin-left: var(--spacing-20);
+    margin-right: var(--spacing-20);
+    gap: var(--spacing-8);
+
+    
+}
+.card1{
+        padding-bottom: var(--spacing-4);
+padding:var(--spacing-3);
+width: 29%;
+border-radius: var(--radius-sm); 
+margin: var(--spacing-2);
+box-shadow: var(--shadow-lg);
+text-align: start;
+border: var(--color-bg-secondary);
+background-color: var(--color-bg-primary);
+
+
+}
+.speakerimg{
+    margin:var(--spacing-1) ;
+border-radius: var(--radius-lg);
+    width: 100%;
+    height: 15rem;
+}
+.featuredspeakers{
+    text-align: center;
+margin: var(--spacing-8);
+background-color: var(--color-bg-tertiary);
+padding-bottom: var(--spacing-16);
+}
+.card2{
+    text-align: start;
+    padding:var(--spacing-3);
+
+border-radius: var(--radius-sm); 
+margin: var(--spacing-2);
+box-shadow: var(--shadow-lg);
+background-color: var(--color-bg-secondary);
+}
+.schedule{
+     text-align: center;
+margin: var(--spacing-8);
+padding-bottom: var(--spacing-6);
+}
+.time{
+    display: flex;
+}
+.daycard{
+      text-align: start;
+    padding:var(--spacing-3);
+
+border-radius: var(--radius-sm); 
+margin: var(--spacing-2);
+flex-grow: 1;
+box-shadow: var(--shadow-lg);
+}
+.cta{
+      background-image: var(--gradient-primary);
+    padding-bottom: var(--spacing-12);
+    text-align: center;
+    padding-top: var(--spacing-12);
+}
+.ftr{
+    display: flex;
+    justify-content: space-between;
+    text-align: start;
+    padding-top: var(--spacing-8);
+}
+
+.footer{
+    text-align: center;
+    background-color: var(--color-bg-tertiary);
+    padding-left: var(--spacing-20);
+    padding-right: var(--spacing-20);
+    padding-bottom: var(--spacing-20);
+}
+.section2{
+  margin-top: var(--spacing-6) ;
+  margin-bottom: var(--spacing-4);
+   padding-left: var(--spacing-20);
+    padding-right: var(--spacing-20);
+}
+.section3{
+  background-color: var(--color-bg-tertiary);
+  text-align: center; 
+   padding-left: var(--spacing-20);
+    padding-right: var(--spacing-20);
+    padding-top: var(--spacing-8);
+    padding-bottom: var(--spacing-4);
+  
+}
+.crd{
+  text-align: center;
+  width: 40%;
+  
+padding:var(--spacing-3);
+
+border-radius: var(--radius-sm); 
+margin: var(--spacing-2);
+box-shadow: var(--shadow-lg);
+background-color: var(--color-bg-primary);
+
+}
+.section4{
+   padding-left: var(--spacing-20);
+    padding-right: var(--spacing-20);
+    padding-top: var(--spacing-8);
+    padding-bottom: var(--spacing-4);
+  margin: var(--spacing-4);
+  text-align: center;
+}
+.carde{
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+  flex-wrap: wrap;
+   
+}
+.card3{
+       
+padding:var(--spacing-3);
+border-radius: var(--radius-md); 
+margin: var(--spacing-6);
+box-shadow: var(--shadow-lg);
+text-align: start;
+border: var(--color-bg-secondary);
+width:29%;
+}
+.section5{
+    padding-left: var(--spacing-20);
+    padding-right: var(--spacing-20);
+    padding-top: var(--spacing-8);
+    padding-bottom: var(--spacing-4);
+  margin: var(--spacing-4);
+  text-align: center;
+  background-color: var(--color-bg-tertiary);
+}
+.abtimg{
+  border-radius: 50%;
+  height: 40%;
+  width: 40%;
+  flex-grow: unset;
+  margin-left: var(--spacing-8);
+  
+}
+.location{
+    padding-left: var(--spacing-20);
+    padding-right: var(--spacing-20);
+    padding-top: var(--spacing-8);
+    padding-bottom: var(--spacing-4);
+  margin: var(--spacing-4);
+  text-align: center;
+}
+.roadimg{
+
+  margin-bottom: var(--spacing-20);
+  height: 110%;
+  width: 70%;
+  border-radius: var(--radius-md);
+}
+.ourimg{
+  width: 45%;
+  height: 60%;
+    border-radius: var(--radius-md);
+}
+.centre{
+  text-align: start;
+
+}
+.crd>h2{
+  color: var(--color-primary-dark);
+}
+.cod{display: flex;
+text-align: start;
+align-items: center;
+ padding-top: var(--spacing-8);
+ justify-content: space-evenly;
+ gap: var(--spacing-20);
+}
+
+.mission{
+   display: flex;
+    margin-left: var(--spacing-20);
+    margin-right: var(--spacing-20);
+    gap: var(--spacing-20);
+
+}
+.card4{
+   padding-bottom: var(--spacing-4);
+padding:var(--spacing-3);
+width: 29%;
+border-radius: var(--radius-sm); 
+margin: var(--spacing-2);
+box-shadow: var(--shadow-lg);
+text-align: start;
+border: var(--color-bg-secondary);
+background-color: var(--color-bg-primary);
+text-align: center;
+}
